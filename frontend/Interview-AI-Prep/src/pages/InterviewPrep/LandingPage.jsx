@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { APP_FEATURES } from '../../utils/data';
 import { useNavigate } from 'react-router-dom';
 import { LuSparkles } from 'react-icons/lu';
+import Modal from "../../components/Modal"; // or "../Modal" — based on folder structure
+import Login from "../auth/Login";
+
 // ✅ Make sure this path is correct
 
 const LandingPage = () => {
@@ -118,7 +121,7 @@ const LandingPage = () => {
   isOpen={openAuthModel}
   onClose={() => {
     setOpenAuthModel(false);
-    setcurrentPage("login");
+    setcurrentPage("login");// reset only on close 
   }}
   hideHeader
 >

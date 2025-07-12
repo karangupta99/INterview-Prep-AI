@@ -8,9 +8,11 @@ const Login = ({ setCurrentPage }) => {
 
   const navigate = useNavigate();
 
-  // Handle Login Form Submit
   const handleLogin = async (e) => {
     e.preventDefault();
+    // Add your login logic here
+    console.log("Email:", email);
+    console.log("Password:", password);
   };
 
   return (
@@ -20,24 +22,47 @@ const Login = ({ setCurrentPage }) => {
         Please enter your details to log in
       </p>
 
-      <form onSubmit={handleLogin}>
-<input
-value={email}
-onChange={({target})=>{setEmail(target.value)}}
-label="Email Address"
-placeholder="Karan@gmail.com"
-type="text"
-/>
-<input
-value={password}
-onChange={({target})=>{setPassword(target.value)}}
-label="password"
-placeholder="Min 8 Character"
-type="password"
-/>
+      <form onSubmit={handleLogin} className="flex flex-col gap-4">
+        <label className="text-sm font-medium">Email Address</label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="karan@gmail.com"
+          type="email"
+          className="p-2 border border-gray-300 rounded-md"
+        />
 
+        <label className="text-sm font-medium">Password</label>
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          label="Password"
+          placeholder="Min 8 characters"
+          type="password"
+          className="p-2 border border-gray-300 rounded-md"
+        />
+
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+
+        <button
+          type="submit"
+          className="mt-4 bg-black text-white py-2 rounded-md hover:bg-blue-700"
+        >
+          Login
+        </button>
+        <p className="text-[13px] text-slate-800 mt-3">
+          Don't Hvae an Account?{" "}
+          <button className="font-medium text-amber-500 underline cursor-pointer"
+           onClick={()=>{
+            setCurrentPage("signup");
+          }}>
+            SignUp
+          </button>
+        </p>
 
       </form>
+    </div>
   );
-  };
- export default Login;
+};
+
+export default Login;

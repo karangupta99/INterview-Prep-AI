@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import LandingPage from "./pages/InterviewPrep/LandingPage";
-import Dashboard from "./pages/Home/Dashboard"
+import Dashboard from "./pages/Home/Dashboard";
 import InterviewPrep from "./pages/InterviewPrep/Interview";
 
 
@@ -19,8 +19,8 @@ const App = () => {
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/interview-prep/:sessionId" element={<LandingPage/>}/>
-          <Route path="/" element={<InterviewPrep/>}/>
+          <Route path="/interview-prep/:sessionId" element={<InterviewPrep/>}/>
+          
     
         </Routes>
       </Router>
